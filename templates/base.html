@@ -19,27 +19,52 @@
     <main>
         <section id="home">
             <h2>Gerar Código</h2>
-            <form action="/generate_code" method="post">
-                <label for="car_model">Modelo do Carro:</label>
+            <form id="generateCodeForm">
+                <label for="car_model">Código co cliente:</label>
                 <input type="text" id="car_model" name="car_model" required>
                 <button type="submit">Gerar Código</button>
             </form>
+            <div id="generatedCodeContainer" style="display: none; margin-top: 20px;">
+                <h3>Código Gerado:</h3>
+                <p id="generatedCode"></p>
+                <button id="copyCodeBtn">Copiar Código</button>
+            </div>
         </section>
+        
         <section id="about">
-            <h2>Historico</h2>
+            <h2>Histórico</h2>
             <p>Aqui você pode ver o histórico de códigos gerados.</p>
+            <div id="historyContainer">
+                <table id="historyTable">
+                    <thead>
+                        <tr>
+                            <th>Data/Hora</th>
+                            <th>Modelo do Carro</th>
+                            <th>Código</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historyBody">
+                    </tbody>
+                </table>
+            </div>
         </section>
+        
         <section id="contact">
             <h2>Cadastrar carro</h2>
-            <form action="/register_car" method="post">
-                <label for="car_make">ID:</label>
-                <input type="text" id="car_model" name="car_model" required>
+            <form id="registerCarForm">
+                <label for="car_id">ID:</label>
+                <input type="text" id="car_id" name="car_id" required>
                 <button type="submit">Cadastrar</button>
             </form>
+            <div id="registrationResult" style="display: none; margin-top: 20px;"></div>
         </section>
-
     </main>
+    
     <footer>
         <p>&copy; 2024 ParKSenai. Todos os direitos reservados.</p>
+    </footer>
+    
+    <script src="/static/usuarios.js"></script>
 </body>
 </html>

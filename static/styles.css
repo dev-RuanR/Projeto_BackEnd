@@ -1,109 +1,277 @@
-/* Reset básico */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Estilo geral */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
+    background: linear-gradient(135deg, #1a73e8 0%, #4285f4 50%, #34a853 100%);
+    min-height: 100vh;
     color: #333;
+    line-height: 1.6;
 }
 
 /* Cabeçalho */
 header {
-    background-color: #1a73e8;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 header h1 {
-    margin-bottom: 10px;
+    color: #1a73e8;
+    font-size: 32px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 nav ul {
-    list-style: none;
     display: flex;
-    justify-content: center;
+    list-style: none;
+    gap: 20px;
+}
+
+nav a {
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+nav a:hover {
+    background-color: #e8f0fe;
+    color: #0c48a1;
+}
+
+nav a:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: #1a73e8;
+    transition: width 0.3s ease;
+}
+
+nav a:hover:after {
+    width: 70%;
+}
+
+/* Conteúdo Principal */
+main {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 30px;
 }
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-    color: #cce0ff;
-}
-
-/* Conteúdo principal */
-main {
-    padding: 40px 20px;
-    max-width: 900px;
-    margin: auto;
-}
-
 section {
-    background-color: white;
-    padding: 25px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
 }
 
 section h2 {
-    margin-bottom: 20px;
     color: #1a73e8;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #e8f0fe;
+    font-size: 24px;
 }
 
 /* Formulários */
 form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
 }
 
 label {
-    font-weight: bold;
+    font-weight: 600;
+    color: #1a73e8;
+    display: block;
+    margin-bottom: 8px;
 }
 
 input[type="text"] {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #e1e5eb;
+    border-radius: 10px;
     font-size: 16px;
+    transition: all 0.3s ease;
+    background-color: #f7f9fc;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #1a73e8;
+    box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.2);
+    background-color: #fff;
 }
 
 button {
-    padding: 10px;
-    background-color: #1a73e8;
+    padding: 14px;
+    background: linear-gradient(to right, #1a73e8, #4285f4);
     color: white;
     border: none;
-    border-radius: 6px;
-    cursor: pointer;
+    border-radius: 10px;
     font-size: 16px;
-    transition: background-color 0.3s ease;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(26, 115, 232, 0.3);
 }
 
 button:hover {
-    background-color: #155ab6;
+    background: linear-gradient(to right, #155ab6, #1a73e8);
+    box-shadow: 0 6px 15px rgba(26, 115, 232, 0.4);
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Código Gerado */
+#generatedCodeContainer {
+    background-color: #e8f5e9;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    border-left: 5px solid #34a853;
+}
+
+#generatedCodeContainer h3 {
+    color: #2e7d32;
+    margin-bottom: 10px;
+}
+
+#generatedCode {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1b5e20;
+    letter-spacing: 2px;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: white;
+    border-radius: 6px;
+    text-align: center;
+}
+
+#copyCodeBtn {
+    background: linear-gradient(to right, #34a853, #4caf50);
+    margin-top: 10px;
+}
+
+#copyCodeBtn:hover {
+    background: linear-gradient(to right, #2e7d32, #388e3c);
+}
+
+/* Histórico */
+#historyContainer {
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e1e5eb;
+}
+
+th {
+    background-color: #1a73e8;
+    color: white;
+    font-weight: 600;
+}
+
+tr:hover {
+    background-color: #f7f9fc;
+}
+
+/* Resultado do Cadastro */
+#registrationResult {
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+    text-align: center;
 }
 
 /* Rodapé */
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #1a73e8;
-    color: white;
+    background-color: rgba(255, 255, 255, 0.9);
     margin-top: 40px;
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+footer p {
+    color: #5f6368;
+}
 
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+section {
+    animation: fadeIn 0.7s ease-out;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    nav ul {
+        justify-content: center;
+    }
+    
+    section {
+        padding: 20px;
+    }
+    
+    th, td {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
