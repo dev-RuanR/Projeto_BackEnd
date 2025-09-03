@@ -7,7 +7,6 @@ class Usuario:
         self.nome = nome
         self.cpf = cpf
         self.email = email
-        self.idade = idade
         self.senha = bcrypt.hashpw(senha.encode("utf-8"), bcrypt.gensalt()).decode("utf-8")
         self.perfil = perfil
 
@@ -17,7 +16,6 @@ class Usuario:
             "nome": self.nome,
             "cpf": self.cpf,
             "email": self.email,
-            "idade": self.idade, 
             "senha": self.senha,
             "perfil": self.perfil
         }
@@ -31,7 +29,6 @@ class Usuario:
             data["nome"],
             data["cpf"],
             data["email"],
-            data["idade"],
             "senha_temporaria",
             data.get("perfil", "user"),
             data["id"]

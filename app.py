@@ -1,5 +1,5 @@
-from flask import Flask, rednder_template, request, jsonify
-import json 
+from flask import Flask, render_template, request, jsonify
+import json
 import os
 import  uuid
 
@@ -71,7 +71,7 @@ def cadastrar_usuario():
         return "Erro ao cadastrar usuário", 500
 
 @app.route("/usuarios/json") # ROTA PARA LISTAR USUÁRIOS EM JSON
-def buscar_usuarios_json():
+def buscar_users_json():
     usuarios = carregar_usuarios()
     return jsonify(usuarios)
 
@@ -79,3 +79,7 @@ def buscar_usuarios_json():
 def buscar_usuarios():
     usuarios = carregar_usuarios()
     return render_template("funcionarios.html", usuarios=usuarios)
+
+if __name__ == '__main__':
+    # Inicia o servidor Flask em modo de desenvolvimento
+    app.run(debug=True)

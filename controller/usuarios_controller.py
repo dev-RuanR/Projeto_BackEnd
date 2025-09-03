@@ -17,7 +17,6 @@ def cadastrar_usuario():
         "nome": request.form.get("nome"),
         "cpf": request.form.get("cpf"),
         "email": request.form.get("email"),
-        "idade": request.form.get("idade"),
         "senha": request.form.get("senha"),
         "perfil": request.form.get("perfil", "user")
     }
@@ -72,7 +71,6 @@ def excluir_usuario(id):
 def atualizar_usuario():
     if "id_usuario" not in session:
         return "Acesso negado. Faça login.", 401
-
     usuario_edit = request.get_json()
     if UsuarioService.atualizar(usuario_edit):
         return jsonify({"mensagem": "Usuário atualizado com sucesso"}), 200
